@@ -25,6 +25,8 @@ pdf_reader/
 
 ### `__init__.py`
 Este archivo se utiliza para marcar el directorio como un paquete Python y para inicializar la estructura del módulo.
+>_[!TIP]
+>POner
 
 ### `__manifest__.py`
 Es el archivo de configuración del módulo, donde se definen los metadatos del módulo, como el nombre, la versión, las dependencias y los archivos que se cargan al instalar el módulo.
