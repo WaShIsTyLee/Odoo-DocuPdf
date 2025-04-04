@@ -36,7 +36,8 @@ Es el archivo de configuración del módulo, donde se definen los metadatos del 
 
 ### Carpeta `models/`
 - **`__init__.py`**: Inicializa los modelos en esta carpeta.
-> [!TIP] En este init deberemos importar nuestro modelo 
+> [!TIP]
+> En este init deberemos importar nuestro modelo 
 - **`pdf_document.py`**: Define el modelo para los documentos PDF, incluyendo campos como el nombre del documento y el archivo binario.
 - **`pdf_reader_folder.py`**: Define el modelo para las carpetas que almacenan los documentos PDF.
 
