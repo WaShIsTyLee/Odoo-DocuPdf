@@ -1,0 +1,37 @@
+<odoo>
+ <!-- PRUEBA DE GITIGNORE-->
+    <data>
+        <record id="view_pdf_folder_tree" model="ir.ui.view">
+            <field name="name">pdf.reader.folder.tree</field>
+            <field name="model">pdf.reader.folder</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pdf_folder_form" model="ir.ui.view">
+            <field name="name">pdf.reader.folder.form</field>
+            <field name="model">pdf.reader.folder</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="document_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_pdf_folder" model="ir.actions.act_window">
+            <field name="name">Carpetas PDF</field>
+            <field name="res_model">pdf.reader.folder</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_pdf_folders" name="Carpetas PDF" parent="menu_pdf_reader" action="action_pdf_folder"/>
+    </data>
+</odoo>
