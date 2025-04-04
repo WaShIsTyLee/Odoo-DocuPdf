@@ -3,22 +3,23 @@
 Este módulo de Odoo está diseñado para la gestión y visualización de documentos PDF. A continuación, se describe la estructura y contenido básico del módulo.
 
 ## Estructura del módulo
-pdf_reader/ 
-├── init.py 
-├── manifest.py 
-├── controllers/ 
-│     └── pdf_controller.py 
-├── models/ 
-│    ├── init.py  
-│    ├── pdf_document.py 
+pdf_reader/
+├── __init__.py
+├── __manifest__.py
+├── controllers/
+│     └── pdf_controller.py
+├── models/
+│    ├── __init__.py
+│    ├── pdf_document.py
 │    └── pdf_reader_folder.py
-├── static/ 
-│     └── src/ 
-│           └── js/ 
-│                └── pdf_viewer.js 
-├── views/ 
-│     ├── pdf_folder.xml 
+├── static/
+│     └── src/
+│           └── js/
+│                └── pdf_viewer.js
+├── views/
+│     ├── pdf_folder.xml
 │     └── pdf_reader_views.xml
+
 
 
 ## Explicación de la estructura
