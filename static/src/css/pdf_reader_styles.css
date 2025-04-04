@@ -1,0 +1,7 @@
+.custom-field label {
+    color: beige;  /* Cambiar el color de las etiquetas */
+}
+
+.custom-field field {
+    color: black; /* Esto asegurará que el texto dentro de los campos no cambie */
+}

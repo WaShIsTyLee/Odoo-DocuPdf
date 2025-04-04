@@ -1,29 +1,50 @@
 <odoo>
     <data>
-        <record id="view_pdf_document_form" model="ir.ui.view">
-            <field name="name">pdf.reader.document.form</field>
+        <!-- Vista Kanban -->
+        <record id="view_pdf_document_kanban" model="ir.ui.view">
+            <field name="name">pdf.reader.document.kanban</field>
             <field name="model">pdf.reader.document</field>
             <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="folder_id"/>
-                            <field name="subject"/>
-                            <field name="contact"/>
-                            <field name="owner"/>
-                            <field name="pdf_file" filename="pdf_filename" widget="binary"/>
-                        </group>
-                        <group>
-                            <div class="oe_button_box" name="button_box">
-                                <button type="object" name="action_view_pdf" string="Ver PDF" class="oe_stat_button" context="{'force_detailed_view': True}" />
+                <kanban js_class="documents_kanban" create="false" sample="1">
+                    <!-- Campos que se mostrarán en el kanban -->
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="subject"/>
+                    <field name="contact"/>
+                    <field name="owner"/>
+                    <field name="pdf_file"/>
+                    <field name="folder_id"/> <!-- Aseguramos que el folder_id esté presente -->
+
+                    <!-- Plantilla de cada tarjeta en el kanban -->
+                    <templates>
+                        <t t-name="kanban-box">
+                            <!-- Estructura de cada tarjeta del kanban -->
+                            <div class="o_kanban_global_area">
+                                <div class="o_kanban_image_wrapper">
+                                    <!-- Puedes agregar aquí el contenido visual que desees, como una imagen o vista previa -->
+                                    <t t-if="record.pdf_file.raw_value">
+                                        <img t-att-src="record.pdf_file.raw_value" alt="Preview" class="o_kanban_image"/>
+                                    </t>
+                                </div>
+                                <div class="o_kanban_details">
+                                    <div class="o_kanban_record_title">
+                                        <field name="name" class="o_kanban_record_name"/>
+                                    </div>
+                                    <div class="o_kanban_record_subtitle">
+                                        <field name="subject"/>
+                                    </div>
+                                    <div class="o_kanban_record_footer">
+                                        <field name="owner" class="o_kanban_record_owner"/>
+                                    </div>
+                                </div>
                             </div>
-                        </group>
-                    </sheet>
-                </form>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
 
+        <!-- Vista de Previo de Formulario -->
         <record id="view_pdf_preview_form" model="ir.ui.view">
             <field name="name">pdf.reader.document.preview.form</field>
             <field name="model">pdf.reader.document</field>
@@ -35,6 +56,7 @@
                             <field name="subject"/>
                             <field name="contact"/>
                             <field name="owner"/>
+                            <field name="folder_id"/> <!-- Aseguramos que el folder_id esté presente en el formulario -->
                         </group>
                         <group>
                             <field name="pdf_file" filename="pdf_filename" widget="pdf_viewer"/>
@@ -44,6 +66,7 @@
             </field>
         </record>
 
+        <!-- Vista Tree -->
         <record id="view_pdf_document_tree" model="ir.ui.view">
             <field name="name">pdf.reader.document.tree</field>
             <field name="model">pdf.reader.document</field>
@@ -53,17 +76,20 @@
                     <field name="subject"/>
                     <field name="contact"/>
                     <field name="owner"/>
+                    <field name="folder_id"/> <!-- Aseguramos que el folder_id esté presente en el árbol -->
                 </tree>
             </field>
         </record>
 
+        <!-- Acción para cargar las vistas -->
         <record id="action_pdf_document" model="ir.actions.act_window">
             <field name="name">Documentos PDF</field>
             <field name="res_model">pdf.reader.document</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban</field> <!-- Agregamos las vistas para poder navegar entre ellas -->
             <field name="view_id" ref="view_pdf_document_tree"/>
         </record>
 
+        <!-- Menú de Navegación -->
         <menuitem id="menu_pdf_reader" name="PDF Reader" parent="base.menu_apps"/>
         <menuitem id="menu_pdf_documents" name="Documentos PDF" parent="menu_pdf_reader" action="action_pdf_document"/>
     </data>

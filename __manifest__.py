@@ -9,6 +9,11 @@
         'views/pdf_reader_views.xml',
         'views/pdf_folder.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'pdf_reader/static/src/css/pdf_reader_styles.css',
+        ],
+    },
     'installable': True,
     'application': True,
 }
