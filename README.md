@@ -26,7 +26,7 @@ pdf_reader/
 ### `__init__.py`
 Este archivo se utiliza para marcar el directorio como un paquete Python y para inicializar la estructura del módulo.
 > [!TIP]
-> POner
+> En este init deberemos importar los Controladores y el Modelo
 
 ### `__manifest__.py`
 Es el archivo de configuración del módulo, donde se definen los metadatos del módulo, como el nombre, la versión, las dependencias y los archivos que se cargan al instalar el módulo.
@@ -36,6 +36,7 @@ Es el archivo de configuración del módulo, donde se definen los metadatos del 
 
 ### Carpeta `models/`
 - **`__init__.py`**: Inicializa los modelos en esta carpeta.
+> [!TIP] En este init deberemos importar nuestro modelo 
 - **`pdf_document.py`**: Define el modelo para los documentos PDF, incluyendo campos como el nombre del documento y el archivo binario.
 - **`pdf_reader_folder.py`**: Define el modelo para las carpetas que almacenan los documentos PDF.
 
