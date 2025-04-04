@@ -33,7 +33,7 @@ Es el archivo de configuración del módulo, donde se definen los metadatos del 
 
 ### Carpeta `static/src/js/`
 - **`pdf_viewer.js`**: Este archivo contiene el código JavaScript necesario para visualizar los documentos PDF en la interfaz de usuario.
-> [!DANGER]  
+> [!CAUTION]  
 > Si hay algún error en este archivo JavaScript, puede afectar la visualización de los documentos PDF. Asegúrate de probar completamente este archivo en la interfaz para evitar problemas de usabilidad.
 
 ### Carpeta `views/`
