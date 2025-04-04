@@ -1,24 +1,11 @@
-# Módulo Odoo - pdf_reader
+# Módulo Odoo - `pdf_reader`
 
 Este módulo de Odoo está diseñado para la gestión y visualización de documentos PDF. A continuación, se describe la estructura y contenido básico del módulo.
 
 ## Estructura del módulo
-pdf_reader/
-├── __init__.py
-├── __manifest__.py
-├── controllers/
-│     └── pdf_controller.py
-├── models/
-│    ├── __init__.py
-│    ├── pdf_document.py
-│    └── pdf_reader_folder.py
-├── static/
-│     └── src/
-│           └── js/
-│                └── pdf_viewer.js
-├── views/
-│     ├── pdf_folder.xml
-│     └── pdf_reader_views.xml
+
+
+pdf_reader/ ├── init.py ├── manifest.py ├── controllers/ │ └── pdf_controller.py ├── models/ │ ├── init.py │ ├── pdf_document.py │ └── pdf_reader_folder.py ├── static/ │ └── src/ │ └── js/ │ └── pdf_viewer.js ├── views/ │ ├── pdf_folder.xml │ └── pdf_reader_views.xml
 
 
 
@@ -26,8 +13,8 @@ pdf_reader/
 
 ### `__init__.py`
 Este archivo se utiliza para marcar el directorio como un paquete Python y para inicializar la estructura del módulo.
-> [!TIP]
-> En este init deberemos importar los Controladores y el Modelo
+> [!TIP]  
+> En este `__init__` deberemos importar los Controladores y el Modelo.
 
 ### `__manifest__.py`
 Es el archivo de configuración del módulo, donde se definen los metadatos del módulo, como el nombre, la versión, las dependencias y los archivos que se cargan al instalar el módulo.
@@ -37,13 +24,17 @@ Es el archivo de configuración del módulo, donde se definen los metadatos del 
 
 ### Carpeta `models/`
 - **`__init__.py`**: Inicializa los modelos en esta carpeta.
-> [!TIP]
-> En este init deberemos importar nuestro modelo 
+> [!TIP]  
+> En este `__init__` deberemos importar nuestro modelo.
 - **`pdf_document.py`**: Define el modelo para los documentos PDF, incluyendo campos como el nombre del documento y el archivo binario.
+> [!WARNING]  
+> Asegúrate de que el campo binario esté correctamente definido, ya que los documentos PDF se almacenan en este formato. Si no lo haces bien, podrías perder la información o generar errores al intentar cargar el documento.
 - **`pdf_reader_folder.py`**: Define el modelo para las carpetas que almacenan los documentos PDF.
 
 ### Carpeta `static/src/js/`
 - **`pdf_viewer.js`**: Este archivo contiene el código JavaScript necesario para visualizar los documentos PDF en la interfaz de usuario.
+> [!DANGER]  
+> Si hay algún error en este archivo JavaScript, puede afectar la visualización de los documentos PDF. Asegúrate de probar completamente este archivo en la interfaz para evitar problemas de usabilidad.
 
 ### Carpeta `views/`
 - **`pdf_folder.xml`**: Define las vistas de Odoo para gestionar las carpetas de documentos PDF.
