@@ -48,8 +48,7 @@ Es el archivo de configuración del módulo, donde se definen los metadatos del 
     'name': 'PDF Reader',
     'version': '1.0',
     'category': 'Document Management',
-    'author': 'Tu Nombre',
-    'website': 'http://www.tusitio.com',
+    'author': 'Nombre del autor',
     'depends': ['base'],
     'data': [
         'views/pdf_folder.xml',
